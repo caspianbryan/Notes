@@ -8,7 +8,8 @@
     "server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "@powershell Remove-Item -Recurse -Force build && cd ../part2 && npm run build && @powershell Copy-Item build -Recurse ../part3of2",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +20,8 @@
     "express": "^4.18.2",
     "mongoose": "^8.0.4",
     "nodemon": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
   }
 }
