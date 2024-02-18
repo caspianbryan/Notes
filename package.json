@@ -1,7 +1,7 @@
 {
   "name": "part3of2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Notes backend config",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
@@ -9,17 +9,21 @@
     "build:ui": "@powershell Remove-Item -Recurse -Force build && cd ../part2 && npm run build && @powershell Copy-Item build -Recurse ../part3of2",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
     "lint": "eslint .",
-    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
+    "start:test": "if %NODE_ENV% == test (node index.js) else (set NODE_ENV=test&&node index.js)"
   },
   "author": "Brian",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
-    "mongoose": "^8.0.4",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.5",
+    "mongoose-unique-validator": "^4.0.0",
     "nodemon": "^3.0.2"
   },
   "devDependencies": {
